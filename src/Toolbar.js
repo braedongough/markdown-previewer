@@ -24,3 +24,5 @@ const Bar = styled.div`
   /*   display: flex;
   justify-content: space-between; */
 `;
+
+//todo: add flex to toolbar title to put space between emoji and titles
