@@ -12,8 +12,8 @@ class App extends Component {
         <MarkdownInput>
           {({ setText, markdown }) => (
             <>
-              <Toolbar name={"editor"} />
-              <Toolbar name={"preview"} />
+              <Toolbar name={"Editor"} theme={"#5a5c7b"} emoji={"📥"} />
+              <Toolbar name={"Preview"} emoji={"📬"} />
               <TextArea onChange={setText} defaultValue={sampleMarkdown} />
               <Output dangerouslySetInnerHTML={markdown} />
             </>
@@ -36,12 +36,13 @@ const Container = styled.div`
 const Output = styled.div`
   background: #414362;
   border: 3px solid #5a5c7b;
-  height: 80vh;
+  height: calc(80vh + 30px);
   width: 80%;
   border-radius: 5px;
   overflow: auto;
   color: white;
   padding: 10px 10px;
+  border-top: 0;
 `;
 
 const TextArea = styled.textarea`
@@ -53,7 +54,8 @@ const TextArea = styled.textarea`
   resize: none;
   overflow: auto;
   color: white;
-  padding: 10px 10px;
+  padding: 30px 10px;
+  border-top: 0;
 `;
 
 export default App;
