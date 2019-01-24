@@ -5,8 +5,8 @@ export default class Toolbar extends Component {
   render() {
     return (
       <Bar>
-        {this.props.name}
-        {this.props.emoji}
+        <div>{this.props.name}</div>
+        <div className={"emoji"}>{this.props.emoji}</div>
       </Bar>
     );
   }
@@ -21,8 +21,9 @@ const Bar = styled.div`
   margin-bottom: -20px;
   z-index: 100;
   font-weight: 500;
-  /*   display: flex;
-  justify-content: space-between; */
+  display: flex;
+  justify-content: space-between;
+  & .emoji {
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  }
 `;
-
-//todo: add flex to toolbar title to put space between emoji and titles

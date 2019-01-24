@@ -11,7 +11,7 @@ export default class MarkdownInput extends Component {
   componentDidMount() {
     this.setState({
       markdown: {
-        __html: marked(sampleMarkdown)
+        __html: marked(sampleMarkdown, { gfm: true, breaks: true })
       }
     });
   }
