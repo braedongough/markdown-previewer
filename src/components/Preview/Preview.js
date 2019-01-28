@@ -4,19 +4,19 @@ import sampleMarkdown from "../../sampleMarkdown";
 import { Toolbar } from "../Toolbar/Toolbar";
 import { SectionContainer } from "../Containers/Containers";
 
-const Editor = props => (
+const Preview = props => (
   <SectionContainer>
     <Toolbar>
       <div>{props.name}</div>
       <div className={"emoji"}>{props.emoji}</div>
     </Toolbar>
-    <Textarea defaultValue={sampleMarkdown} />
+    <Section dangerouslySetInnerHTML={{ __html: sampleMarkdown }} />
   </SectionContainer>
 );
 
-const Textarea = styled.textarea`
-  background: #5a5c7b;
-  border: 3px solid #7c7e97;
+const Section = styled.section`
+  background: #414362;
+  border: 3px solid #5a5c7b;
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -28,4 +28,4 @@ const Textarea = styled.textarea`
   margin-top: 10px;
 `;
 
-export default Editor;
+export default Preview;
