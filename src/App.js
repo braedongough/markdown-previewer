@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import "./App.css";
 import MarkdownInput from "./MarkdownInput";
 import styled from "styled-components";
 import sampleMarkdown from "./sampleMarkdown";
-import Toolbar from "./Toolbar";
+import Editor from "./components/Editor/Editor";
 
 class App extends Component {
   render() {
@@ -12,10 +11,11 @@ class App extends Component {
         <MarkdownInput>
           {({ setText, markdown }) => (
             <>
-              <Toolbar name={"Editor"} theme={"#5a5c7b"} emoji={"📥"} />
-              <Toolbar name={"Preview"} emoji={"📬"} />
-              <TextArea onChange={setText} defaultValue={sampleMarkdown} />
-              <Output dangerouslySetInnerHTML={markdown} />
+              {/* <Toolbar name={"Editor"} theme={"#5a5c7b"} emoji={"📥"} /> */}
+              {/* <Toolbar name={"Preview"} emoji={"📬"} /> */}
+
+              <Editor onChange={setText} name={"Editor"} emoji={"📥"} />
+              <Preview dangerouslySetInnerHTML={markdown} />
             </>
           )}
         </MarkdownInput>
@@ -23,6 +23,19 @@ class App extends Component {
     );
   }
 }
+
+/*
+<Container> 
+  <Editor> relative
+    <Toolbar /> absolute 
+    <Input /> 
+  </Editor>
+
+  <Preview>
+    <Toolbar />
+  </Preview>
+</Container>
+*/
 
 const Container = styled.div`
   display: grid;
@@ -33,7 +46,7 @@ const Container = styled.div`
   margin: 20px;
 `;
 
-const Output = styled.div`
+const Preview = styled.div`
   background: #414362;
   border: 3px solid #5a5c7b;
   height: calc(80vh + 30px);
@@ -42,19 +55,6 @@ const Output = styled.div`
   overflow: auto;
   color: white;
   padding: 10px 10px;
-  border-top: 0;
-`;
-
-const TextArea = styled.textarea`
-  background: #5a5c7b;
-  border: 3px solid #7c7e97;
-  border-radius: 5px;
-  width: 80%;
-  height: 80vh;
-  resize: none;
-  overflow: auto;
-  color: white;
-  padding: 30px 10px;
   border-top: 0;
 `;
 
