@@ -10,7 +10,7 @@ const Preview = props => (
       <div>{props.name}</div>
       <div className={"emoji"}>{props.emoji}</div>
     </Toolbar>
-    <Section dangerouslySetInnerHTML={{ __html: sampleMarkdown }} />
+    <Section dangerouslySetInnerHTML={props.dangerouslySetInnerHTML} />
   </SectionContainer>
 );
 

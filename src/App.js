@@ -1,27 +1,31 @@
 import React, { Component } from "react";
-import styled from "styled-components";
-
-import MarkdownInput from "./MarkdownInput";
+import ConvertMarkdown from "./components/ConvertMarkdown/ConvertMarkdown";
 import Editor from "./components/Editor/Editor";
 import Preview from "./components/Preview/Preview";
 import { AppContainer } from "./components/Containers/Containers";
+import sampleMarkdown from "./sampleMarkdown";
 
 class App extends Component {
   render() {
     return (
       <AppContainer>
-        <MarkdownInput>
-          {({ setText, markdown }) => (
+        <ConvertMarkdown>
+          {({ setText, convertedText }) => (
             <>
-              <Editor onChange={setText} name={"Editor"} emoji={"📥"} />
+              <Editor
+                onChange={setText}
+                name={"Editor"}
+                emoji={"📥"}
+                defaultValue={sampleMarkdown}
+              />
               <Preview
-                dangerouslySetInnerHTML={markdown}
+                dangerouslySetInnerHTML={convertedText}
                 name={"Preview"}
                 emoji={"📬"}
               />
             </>
           )}
-        </MarkdownInput>
+        </ConvertMarkdown>
       </AppContainer>
     );
   }

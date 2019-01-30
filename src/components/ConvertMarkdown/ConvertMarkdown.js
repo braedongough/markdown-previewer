@@ -1,16 +1,16 @@
 import { Component } from "react";
 import marked from "marked";
-import sampleMarkdown from "./sampleMarkdown";
+import sampleMarkdown from "../../sampleMarkdown";
 
-export default class MarkdownInput extends Component {
+export default class ConvertMarkdown extends Component {
   state = {
-    markdown: {
+    markup: {
       __html: ""
     }
   };
   componentDidMount() {
     this.setState({
-      markdown: {
+      markup: {
         __html: marked(sampleMarkdown, { gfm: true, breaks: true })
       }
     });
@@ -26,7 +26,7 @@ export default class MarkdownInput extends Component {
   render() {
     const { children } = this.props;
     return children({
-      markdown: this.state.markdown,
+      convertedText: this.state.markup,
       setText: this.setText
     });
   }

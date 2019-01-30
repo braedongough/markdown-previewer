@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import sampleMarkdown from "../../sampleMarkdown";
 import { Toolbar } from "../Toolbar/Toolbar";
 import { SectionContainer } from "../Containers/Containers";
 
@@ -10,7 +9,7 @@ const Editor = props => (
       <div>{props.name}</div>
       <div className={"emoji"}>{props.emoji}</div>
     </Toolbar>
-    <Textarea defaultValue={sampleMarkdown} />
+    <Textarea defaultValue={props.defaultValue} onChange={props.onChange} />
   </SectionContainer>
 );
 
