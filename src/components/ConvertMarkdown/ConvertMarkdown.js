@@ -18,7 +18,7 @@ export default class ConvertMarkdown extends Component {
   setText = e => {
     const text = e.target.value;
     this.setState({
-      markdown: {
+      markup: {
         __html: marked(text)
       }
     });
